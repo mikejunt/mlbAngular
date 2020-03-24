@@ -3,13 +3,13 @@
         Team and Stadium Information
     </div>
     <div class="desc-container">
-        <p>{{teamdata['venue_name']}}, {{teamdata['address_line1']}}, {{teamdata['address_city']}},
-            {{teamdata['state']}}.</p>
-        <p>{{teamdata['division_full']}} - Active since {{teamdata['first_year_of_play']}}</p>
-        <p>Team Website: <a href="http://{{teamdata['base_url']}}" target="_blank">{{teamdata['base_url']}}</a></p>
+        <p>{{teamdata['VenueName']}}, {{teamdata['AddressLine1']}}, {{teamdata['AddressCity']}},
+            {{teamdata['State']}}.</p>
+        <p>{{teamdata['DivisionFull']}} - Active since {{teamdata['FirstYearOfPlay']}}</p>
+        <p>Team Website: <a href="http://{{teamdata['BaseUrl']}}" target="_blank">{{teamdata['BaseUrl']}}</a></p>
 
-        <p>The {{teamdata['mlb_org_brief']}} would have played their first game of the {{teamdata['season']}} season at
-            {{teamdata['venue_short']}} on {{teamdata['home_opener'] | momentdate}} at {{teamdata['home_opener_time']}}
-            {{teamdata['time_zone_text']}}, but now, who knows?</p>
+        <p>The {{teamdata['MlbOrgBrief']}} would have played their first game of the {{teamdata['Season']}} Season at
+            {{teamdata['VenueShort']}} on {{teamdata['HomeOpener'] | momentdate}} at {{teamdata['HomeOpenerTime']}}
+            {{teamdata['TimeZoneText']}}, but now, who knows?</p>
     </div>
 </div>

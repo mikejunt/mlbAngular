@@ -15,9 +15,9 @@ export class TeamPitchLeadersComponent implements OnInit {
   pitchers$: Observable<Pitcher[]>
   displayteam: string
   pitchers: Pitcher[]
-  fipColumns: string[] = ['player', 'fip','ip']
-  soColumns: string[] = ['player', 'so','ip']
-  eraColumns: string[] = ['player', 'era','ip']
+  fipColumns: string[] = ['Player', 'Fip','Ip']
+  soColumns: string[] = ['Player', 'So','Ip']
+  eraColumns: string[] = ['Player', 'Era','Ip']
 
   constructor(private store: Store<AppState>) {
     this.pitchers$ = this.store.select(Selectors.viewPitching);

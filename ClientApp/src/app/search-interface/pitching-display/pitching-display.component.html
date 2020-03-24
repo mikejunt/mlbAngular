@@ -3,57 +3,57 @@
   <app-search-interface></app-search-interface>
   <div class="display-container">
     <mat-table matSort matSortDisableClear="true" (matSortChange)="sortTable($event)" [dataSource]="pitchdata">
-      <ng-container matColumnDef="player" sticky>
+      <ng-container matColumnDef="Player" sticky>
         <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-        <mat-cell *matCellDef="let pitcher"> {{pitcher["player"] | nameFirstLast}} </mat-cell>
+        <mat-cell *matCellDef="let pitcher"> {{pitcher["Player"] | nameFirstLast}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="name">
+      <ng-container matColumnDef="Name">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Team </mat-header-cell>
-        <mat-cell *matCellDef="let pitcher"> {{pitcher["name"]}} </mat-cell>
+        <mat-cell *matCellDef="let pitcher"> {{pitcher["Name"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="w">
+      <ng-container matColumnDef="W">
         <mat-header-cell *matHeaderCellDef mat-sort-header> W </mat-header-cell>
-        <mat-cell *matCellDef="let pitcher"> {{pitcher["w"]}} </mat-cell>
+        <mat-cell *matCellDef="let pitcher"> {{pitcher["W"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="l">
+      <ng-container matColumnDef="L">
         <mat-header-cell *matHeaderCellDef mat-sort-header> L </mat-header-cell>
-        <mat-cell *matCellDef="let pitcher"> {{pitcher["l"]}} </mat-cell>
+        <mat-cell *matCellDef="let pitcher"> {{pitcher["L"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="sv">
+      <ng-container matColumnDef="Sv">
         <mat-header-cell *matHeaderCellDef mat-sort-header> SV </mat-header-cell>
-        <mat-cell *matCellDef="let pitcher"> {{pitcher["sv"]}} </mat-cell>
+        <mat-cell *matCellDef="let pitcher"> {{pitcher["Sv"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="g">
+      <ng-container matColumnDef="G">
         <mat-header-cell *matHeaderCellDef mat-sort-header> G </mat-header-cell>
-        <mat-cell *matCellDef="let pitcher"> {{pitcher["g"]}} </mat-cell>
+        <mat-cell *matCellDef="let pitcher"> {{pitcher["G"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="gs">
+      <ng-container matColumnDef="Gs">
         <mat-header-cell *matHeaderCellDef mat-sort-header> GS </mat-header-cell>
-        <mat-cell *matCellDef="let pitcher"> {{pitcher["gs"]}} </mat-cell>
+        <mat-cell *matCellDef="let pitcher"> {{pitcher["Gs"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="ip">
+      <ng-container matColumnDef="Ip">
         <mat-header-cell *matHeaderCellDef mat-sort-header> IP </mat-header-cell>
-        <mat-cell *matCellDef="let pitcher"> {{pitcher["ip"]}} </mat-cell>
+        <mat-cell *matCellDef="let pitcher"> {{pitcher["Ip"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="so">
+      <ng-container matColumnDef="So">
         <mat-header-cell *matHeaderCellDef mat-sort-header start="desc"> K </mat-header-cell>
-        <mat-cell *matCellDef="let pitcher"> {{pitcher["so"]}} </mat-cell>
+        <mat-cell *matCellDef="let pitcher"> {{pitcher["So"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="bb">
+      <ng-container matColumnDef="Bb">
         <mat-header-cell *matHeaderCellDef mat-sort-header> BB </mat-header-cell>
-        <mat-cell *matCellDef="let pitcher"> {{pitcher["bb"]}} </mat-cell>
+        <mat-cell *matCellDef="let pitcher"> {{pitcher["Bb"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="hr">
+      <ng-container matColumnDef="Hr">
         <mat-header-cell *matHeaderCellDef mat-sort-header> HR </mat-header-cell>
-        <mat-cell *matCellDef="let pitcher"> {{pitcher["hr"]}} </mat-cell>
+        <mat-cell *matCellDef="let pitcher"> {{pitcher["Hr"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="era">
+      <ng-container matColumnDef="Era">
         <mat-header-cell *matHeaderCellDef mat-sort-header> ERA </mat-header-cell>
-        <mat-cell *matCellDef="let pitcher"> {{pitcher["era"]}} </mat-cell>
+        <mat-cell *matCellDef="let pitcher"> {{pitcher["Era"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="fip">
+      <ng-container matColumnDef="Fip">
         <mat-header-cell *matHeaderCellDef mat-sort-header> FIP </mat-header-cell>
-        <mat-cell *matCellDef="let pitcher"> {{pitcher["fip"]}} </mat-cell>
+        <mat-cell *matCellDef="let pitcher"> {{pitcher["Fip"]}} </mat-cell>
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
