@@ -22,6 +22,7 @@ export interface AppState {
   curhitting: Reducers.CurrentYrHittingState
   userlist: Reducers.UserListState
   searchterms: Reducers.SearchTermState
+  auth0: Reducers.AuthorizationState
 }
 
 export const reducers: ActionReducerMap<AppState> = {
@@ -36,7 +37,8 @@ export const reducers: ActionReducerMap<AppState> = {
   curpitching: Reducers.saveCurPitching,
   curhitting: Reducers.saveCurHitting,
   userlist: Reducers.addNewUserStatus,
-  searchterms: Reducers.setSearchTerms
+  searchterms: Reducers.setSearchTerms,
+  auth0: Reducers.setAuthorization,
 }
 
 export const metaReducers: MetaReducer<AppState>[] = !environment.production ? [] : [];
