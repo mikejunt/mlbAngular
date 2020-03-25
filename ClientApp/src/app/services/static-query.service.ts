@@ -4,6 +4,7 @@ import { map, tap, retry, catchError } from 'rxjs/operators'
 import { Store } from '@ngrx/store';
 import * as Actions from '../store/actions/'
 import { AppState } from '../store';
+import { Team } from '../interfaces/team.interface';
 
 
 @Injectable({
@@ -12,6 +13,7 @@ import { AppState } from '../store';
 
 export class StaticqueryService {
   private trxUrl = 'https://lookup-service-prod.mlb.com/json/named.transaction_all.bam?';
+  private teamsUrl = 'https://baseball-api.azurewebsites.net/api/teams';
 
   constructor(private http: HttpClient, private store: Store<AppState>) { }
 
@@ -27,21 +29,19 @@ export class StaticqueryService {
   }
 
   fetchTeams() {
-    this.http.get('/api/teams/').pipe(
+    this.http.get(this.teamsUrl).pipe(
       retry(3),
-      catchError(err => this.logError(err.msg)),
-      map(res => res = res['data']))
-      .subscribe(teamlist => {
+      catchError(err => this.logError(err.msg)))
+      .subscribe((teamlist: Team[]) => {console.log("from teamlist", teamlist);
         this.store.dispatch(Actions.saveTeams({ teamlist: teamlist }));
       })
   }
 
   fetchTeamDetails(teamid: string) {
-    this.http.get(`/api/teams/${teamid}`).pipe(
+    this.http.get(`${this.teamsUrl}/${teamid}`).pipe(
       retry(3),
-      catchError(err => this.logError(err.msg)),
-      map(res => res = res['data']))
-      .subscribe(teamdata => {
+      catchError(err => this.logError(err.msg)))
+      .subscribe(teamdata => {console.log("hello from team detals", teamdata);
         this.store.dispatch(Actions.saveTeamDetails({ teamdetails: teamdata }))
       })
   }

@@ -15,8 +15,8 @@
                 <mat-label for="teamlist">Select Team</mat-label>
                 <mat-select [(ngModel)]="searchterms.teamfilter">
                     <mat-option value="allteams">All MLB</mat-option>
-                    <mat-option *ngFor="let team of teamlist; index as i" value="{{team['mlb_org_id']}}">
-                        {{team["name_display_brief"]}}</mat-option>
+                    <mat-option *ngFor="let team of teamlist; index as i" value="{{team['mlbOrgId']}}">
+                        {{team["nameDisplayBrief"]}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
