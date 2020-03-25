@@ -12,7 +12,7 @@ import { Hitter } from '../interfaces/hitter.interface';
 })
 export class HittingService {
 
-  private hitUrl: string = "https://baseball-api.azurewebsites.net/api/hitting?"
+  private hitUrl: string = "https://baseball-api.azurewebsites.net/api/hitting"
 
   constructor(private http: HttpClient, private store: Store<AppState>) { }
 
@@ -22,10 +22,7 @@ export class HittingService {
     .set('pa',terms.pafilter)
     .set('team',terms.teamfilter)
     .set('position',terms.posfilter);
-    console.log(params)
-    console.log(this.hitUrl)
-    this.http.get(this.hitUrl,{params}).subscribe((res: Hitter[]) => {
-      console.log("Hello its me hitters", res)
+    this.http.get(`${this.hitUrl}?`,{params}).subscribe((res: Hitter[]) => {
       this.store.dispatch(Actions.saveHitters({ hitting: res }))
       })
     }
