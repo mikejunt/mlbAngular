@@ -42,7 +42,6 @@ export class SearchInterfaceComponent implements OnInit {
     const terms = {...this.searchterms}
     this.store.dispatch(Actions.saveSearchTerms({searchterms: terms}))
     if (this.mode === "hitting") {
-      console.log("seach button", terms)
       this.hitting.fetchSeasonHitting(terms)
     }
     if (this.mode === "pitching") {
