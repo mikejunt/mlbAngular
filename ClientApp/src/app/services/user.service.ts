@@ -33,17 +33,17 @@ export class UserService {
   }
 
   authenticate(username: string, password: string) {
-    this.http.post('/api/user/login', { username: username, password: password }).subscribe(res => {
-      if (res["success"]) {
-        let favteam = res["favteam"];
-        this.store.dispatch(Actions.login({ user: { username: username, favteam: favteam } }))
-        this.store.dispatch(Actions.setViewTeam({ displayteam: favteam }))
-        this.getinitialData(favteam)
+    // this.http.post('/api/user/login', { username: username, password: password }).subscribe(res => {
+    //   if (res["success"]) {
+    //     let favteam = res["favteam"];
+    //     this.store.dispatch(Actions.login({ user: { username: username, favteam: favteam } }))
+    //     this.store.dispatch(Actions.setViewTeam({ displayteam: favteam }))
+    //     this.getinitialData(favteam)
         this.router.navigate(['landing'])
       }
-      else return false
-    })
-  }
+  //     else return false
+  //   })
+  // }
 
   signup(inputname: string, inputpassword: string, inputfavteam: string){
     let newuser: User = { userid: this.nextUserId, username: inputname, password: inputpassword, favteam: inputfavteam }
