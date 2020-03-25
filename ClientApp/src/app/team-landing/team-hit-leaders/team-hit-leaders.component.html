@@ -1,58 +1,58 @@
 <div class="mat-app-background landing-panel">
-    <div *ngIf="hitters.length != 0" class="sub-header">Batting Leaders ({{hitters[0]['season']}})</div>
+    <div *ngIf="hitters.length != 0" class="sub-header">Batting Leaders ({{hitters[0]['Season']}})</div>
     <mat-progress-spinner *ngIf="hitters.length == 0; else loaded" color="primary" mode="indeterminate">
     </mat-progress-spinner>
     <ng-template #loaded>
         <mat-tab-group color="primary" backgroundColor="accent" mat-stretch-tabs>
             <mat-tab label="wOBA">
-                <mat-table [dataSource]="hitters | leadersDesc:'woba'">
-                    <ng-container matColumnDef="player">
+                <mat-table [dataSource]="hitters | leadersDesc:'Woba'">
+                    <ng-container matColumnDef="Player">
                         <mat-header-cell *matHeaderCellDef> Player </mat-header-cell>
-                        <mat-cell *matCellDef="let hitter"> {{hitter["player"] | nameFirstLast}} </mat-cell>
+                        <mat-cell *matCellDef="let hitter"> {{hitter["Player"] | nameFirstLast}} </mat-cell>
                     </ng-container>
-                    <ng-container matColumnDef="woba">
+                    <ng-container matColumnDef="Woba">
                         <mat-header-cell *matHeaderCellDef> wOBA </mat-header-cell>
-                        <mat-cell *matCellDef="let hitter"> {{hitter["woba"]}} </mat-cell>
+                        <mat-cell *matCellDef="let hitter"> {{hitter["Woba"]}} </mat-cell>
                     </ng-container>
-                    <ng-container matColumnDef="tpa">
+                    <ng-container matColumnDef="Tpa">
                         <mat-header-cell *matHeaderCellDef> PA </mat-header-cell>
-                        <mat-cell *matCellDef="let hitter"> {{hitter["tpa"]}} </mat-cell>
+                        <mat-cell *matCellDef="let hitter"> {{hitter["Tpa"]}} </mat-cell>
                     </ng-container>
                     <mat-header-row *matHeaderRowDef="wobaColumns"></mat-header-row>
                     <mat-row *matRowDef="let row; columns: wobaColumns;"></mat-row>
                 </mat-table>
             </mat-tab>
             <mat-tab label="HR">
-                <mat-table [dataSource]="hitters | leadersDesc:'hr'">
-                    <ng-container matColumnDef="player">
+                <mat-table [dataSource]="hitters | leadersDesc:'Hr'">
+                    <ng-container matColumnDef="Player">
                         <mat-header-cell *matHeaderCellDef> Player </mat-header-cell>
-                        <mat-cell *matCellDef="let hitter"> {{hitter["player"] | nameFirstLast}} </mat-cell>
+                        <mat-cell *matCellDef="let hitter"> {{hitter["Player"] | nameFirstLast}} </mat-cell>
                     </ng-container>
-                    <ng-container matColumnDef="hr">
+                    <ng-container matColumnDef="Hr">
                         <mat-header-cell *matHeaderCellDef> HR </mat-header-cell>
-                        <mat-cell *matCellDef="let hitter"> {{hitter["hr"]}} </mat-cell>
+                        <mat-cell *matCellDef="let hitter"> {{hitter["Hr"]}} </mat-cell>
                     </ng-container>
-                    <ng-container matColumnDef="tpa">
+                    <ng-container matColumnDef="Tpa">
                         <mat-header-cell *matHeaderCellDef> PA </mat-header-cell>
-                        <mat-cell *matCellDef="let hitter"> {{hitter["tpa"]}} </mat-cell>
+                        <mat-cell *matCellDef="let hitter"> {{hitter["Tpa"]}} </mat-cell>
                     </ng-container>
                     <mat-header-row *matHeaderRowDef="hrColumns"></mat-header-row>
                     <mat-row *matRowDef="let row; columns: hrColumns;"></mat-row>
                 </mat-table>
             </mat-tab>
             <mat-tab label="OPS">
-                <mat-table [dataSource]="hitters | leadersDesc:'ops'">
-                    <ng-container matColumnDef="player">
+                <mat-table [dataSource]="hitters | leadersDesc:'Ops'">
+                    <ng-container matColumnDef="Player">
                         <mat-header-cell *matHeaderCellDef> Player </mat-header-cell>
-                        <mat-cell *matCellDef="let hitter"> {{hitter["player"] | nameFirstLast}} </mat-cell>
+                        <mat-cell *matCellDef="let hitter"> {{hitter["Player"] | nameFirstLast}} </mat-cell>
                     </ng-container>
-                    <ng-container matColumnDef="ops">
+                    <ng-container matColumnDef="Ops">
                         <mat-header-cell *matHeaderCellDef> OPS </mat-header-cell>
-                        <mat-cell *matCellDef="let hitter"> {{hitter["ops"]}} </mat-cell>
+                        <mat-cell *matCellDef="let hitter"> {{hitter["Ops"]}} </mat-cell>
                     </ng-container>
-                    <ng-container matColumnDef="tpa">
+                    <ng-container matColumnDef="Tpa">
                         <mat-header-cell *matHeaderCellDef> PA </mat-header-cell>
-                        <mat-cell *matCellDef="let hitter"> {{hitter["tpa"]}} </mat-cell>
+                        <mat-cell *matCellDef="let hitter"> {{hitter["Tpa"]}} </mat-cell>
                     </ng-container>
                     <mat-header-row *matHeaderRowDef="opsColumns"></mat-header-row>
                     <mat-row *matRowDef="let row; columns: opsColumns;"></mat-row>

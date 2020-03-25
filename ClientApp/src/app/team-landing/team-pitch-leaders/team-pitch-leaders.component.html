@@ -1,58 +1,58 @@
 <div class="mat-app-background landing-panel">
-    <div *ngIf="pitchers.length != 0" class="sub-header">Pitching Leaders ({{pitchers[0]['season']}})</div>
+    <div *ngIf="pitchers.length != 0" class="sub-header">Pitching Leaders ({{pitchers[0]['Season']}})</div>
     <mat-progress-spinner *ngIf="pitchers.length == 0; else loaded" color="primary" mode="indeterminate">
     </mat-progress-spinner>
     <ng-template #loaded>
         <mat-tab-group color="primary" backgroundColor="accent" mat-stretch-tabs>
             <mat-tab label="FIP">
-                <mat-table [dataSource]="pitchers | leadersAsc:'fip'">
-                    <ng-container matColumnDef="player">
+                <mat-table [dataSource]="pitchers | leadersAsc:'Fip'">
+                    <ng-container matColumnDef="Player">
                         <mat-header-cell *matHeaderCellDef> Player </mat-header-cell>
-                        <mat-cell *matCellDef="let pitcher"> {{pitcher["player"] | nameFirstLast}} </mat-cell>
+                        <mat-cell *matCellDef="let pitcher"> {{pitcher["Player"] | nameFirstLast}} </mat-cell>
                     </ng-container>
-                    <ng-container matColumnDef="fip">
+                    <ng-container matColumnDef="Fip">
                         <mat-header-cell *matHeaderCellDef> FIP </mat-header-cell>
-                        <mat-cell *matCellDef="let pitcher"> {{pitcher["fip"]}} </mat-cell>
+                        <mat-cell *matCellDef="let pitcher"> {{pitcher["Fip"]}} </mat-cell>
                     </ng-container>
-                    <ng-container matColumnDef="ip">
+                    <ng-container matColumnDef="Ip">
                         <mat-header-cell *matHeaderCellDef> IP </mat-header-cell>
-                        <mat-cell *matCellDef="let pitcher"> {{pitcher["ip"]}} </mat-cell>
+                        <mat-cell *matCellDef="let pitcher"> {{pitcher["Ip"]}} </mat-cell>
                     </ng-container>
                     <mat-header-row *matHeaderRowDef="fipColumns"></mat-header-row>
                     <mat-row *matRowDef="let row; columns: fipColumns;"></mat-row>
                 </mat-table>
             </mat-tab>
             <mat-tab label="Strikeouts">
-                <mat-table [dataSource]="pitchers | leadersDesc:'so'">
-                    <ng-container matColumnDef="player">
+                <mat-table [dataSource]="pitchers | leadersDesc:'So'">
+                    <ng-container matColumnDef="Player">
                         <mat-header-cell *matHeaderCellDef> Player </mat-header-cell>
-                        <mat-cell *matCellDef="let pitcher"> {{pitcher["player"] | nameFirstLast}} </mat-cell>
+                        <mat-cell *matCellDef="let pitcher"> {{pitcher["Player"] | nameFirstLast}} </mat-cell>
                     </ng-container>
-                    <ng-container matColumnDef="so">
+                    <ng-container matColumnDef="So">
                         <mat-header-cell *matHeaderCellDef> K </mat-header-cell>
-                        <mat-cell *matCellDef="let pitcher"> {{pitcher["so"]}} </mat-cell>
+                        <mat-cell *matCellDef="let pitcher"> {{pitcher["So"]}} </mat-cell>
                     </ng-container>
-                    <ng-container matColumnDef="ip">
+                    <ng-container matColumnDef="Ip">
                         <mat-header-cell *matHeaderCellDef> IP </mat-header-cell>
-                        <mat-cell *matCellDef="let pitcher"> {{pitcher["ip"]}} </mat-cell>
+                        <mat-cell *matCellDef="let pitcher"> {{pitcher["Ip"]}} </mat-cell>
                     </ng-container>
                     <mat-header-row *matHeaderRowDef="soColumns"></mat-header-row>
                     <mat-row *matRowDef="let row; columns: soColumns;"></mat-row>
                 </mat-table>
             </mat-tab>
             <mat-tab label="ERA">
-                <mat-table [dataSource]="pitchers | leadersAsc:'era'">
-                    <ng-container matColumnDef="player">
+                <mat-table [dataSource]="pitchers | leadersAsc:'Era'">
+                    <ng-container matColumnDef="Player">
                         <mat-header-cell *matHeaderCellDef> Player </mat-header-cell>
-                        <mat-cell *matCellDef="let pitcher"> {{pitcher["player"] | nameFirstLast}} </mat-cell>
+                        <mat-cell *matCellDef="let pitcher"> {{pitcher["Player"] | nameFirstLast}} </mat-cell>
                     </ng-container>
-                    <ng-container matColumnDef="era">
+                    <ng-container matColumnDef="Era">
                         <mat-header-cell *matHeaderCellDef> ERA </mat-header-cell>
-                        <mat-cell *matCellDef="let pitcher"> {{pitcher["era"]}} </mat-cell>
+                        <mat-cell *matCellDef="let pitcher"> {{pitcher["Era"]}} </mat-cell>
                     </ng-container>
-                    <ng-container matColumnDef="ip">
+                    <ng-container matColumnDef="Ip">
                         <mat-header-cell *matHeaderCellDef> IP </mat-header-cell>
-                        <mat-cell *matCellDef="let pitcher"> {{pitcher["ip"]}} </mat-cell>
+                        <mat-cell *matCellDef="let pitcher"> {{pitcher["Ip"]}} </mat-cell>
                     </ng-container>
                     <mat-header-row *matHeaderRowDef="eraColumns"></mat-header-row>
                     <mat-row *matRowDef="let row; columns: eraColumns;"></mat-row>
