@@ -11,7 +11,7 @@ import { Pitcher } from '../interfaces/pitcher.interface';
   providedIn: 'root'
 })
 export class PitchingService {
-  private pitchUrl: string = "https://baseball-api.azurewebsites.net/api/pitching?"
+  private pitchUrl: string = "https://baseball-api.azurewebsites.net/api/pitching"
   constructor(private http: HttpClient, private store: Store<AppState>) { }
 
   fetchSeasonPitching(terms: SearchTerms) {
@@ -19,7 +19,7 @@ export class PitchingService {
     .set('season', terms.searchyear)
     .set('team', terms.teamfilter)
     .set('ip', terms.ipfilter)
-    this.http.get(this.pitchUrl,{params}).subscribe((res:Pitcher[])=> {
+    this.http.get(`${this.pitchUrl}`,{params}).subscribe((res:Pitcher[])=> {
        this.store.dispatch(Actions.savePitchers({ pitching: res }))})
     }
 
