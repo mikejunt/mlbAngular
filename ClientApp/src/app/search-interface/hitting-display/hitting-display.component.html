@@ -3,61 +3,61 @@
   <app-search-interface></app-search-interface>
   <div class="results-display">
     <mat-table matSort matSortDisableClear="true" [dataSource]="hitdata" (matSortChange)="sortTable($event)">
-      <ng-container matColumnDef="Player" sticky>
-        <mat-header-cell *matHeaderCellDef mat-sort-header start="asc"> Name </mat-header-cell>
-        <mat-cell *matCellDef="let hitter"> {{hitter["Player"] | nameFirstLast}} </mat-cell>
+      <ng-container matColumnDef="player" sticky>
+        <mat-header-cell *matHeaderCellDef mat-sort-header start="asc"> name </mat-header-cell>
+        <mat-cell *matCellDef="let hitter"> {{hitter["player"] | nameFirstLast}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="Name">
+      <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef mat-sort-header start="asc"> Team </mat-header-cell>
-        <mat-cell *matCellDef="let hitter"> {{hitter["Name"]}} </mat-cell>
+        <mat-cell *matCellDef="let hitter"> {{hitter["name"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="G">
+      <ng-container matColumnDef="g">
         <mat-header-cell *matHeaderCellDef mat-sort-header start="desc"> GP </mat-header-cell>
-        <mat-cell *matCellDef="let hitter"> {{hitter["G"]}} </mat-cell>
+        <mat-cell *matCellDef="let hitter"> {{hitter["g"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="Tpa">
+      <ng-container matColumnDef="tpa">
         <mat-header-cell *matHeaderCellDef mat-sort-header start="desc"> PA </mat-header-cell>
-        <mat-cell *matCellDef="let hitter"> {{hitter["Tpa"]}} </mat-cell>
+        <mat-cell *matCellDef="let hitter"> {{hitter["tpa"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="R">
-        <mat-header-cell *matHeaderCellDef mat-sort-header start="desc"> R </mat-header-cell>
-        <mat-cell *matCellDef="let hitter"> {{hitter["R"]}} </mat-cell>
+      <ng-container matColumnDef="r">
+        <mat-header-cell *matHeaderCellDef mat-sort-header start="desc"> r </mat-header-cell>
+        <mat-cell *matCellDef="let hitter"> {{hitter["r"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="Rbi">
+      <ng-container matColumnDef="rbi">
         <mat-header-cell *matHeaderCellDef mat-sort-header start="desc"> RBI </mat-header-cell>
-        <mat-cell *matCellDef="let hitter"> {{hitter["Rbi"]}} </mat-cell>
+        <mat-cell *matCellDef="let hitter"> {{hitter["rbi"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="Hr">
+      <ng-container matColumnDef="hr">
         <mat-header-cell *matHeaderCellDef mat-sort-header start="desc"> HR </mat-header-cell>
-        <mat-cell *matCellDef="let hitter"> {{hitter["Hr"]}} </mat-cell>
+        <mat-cell *matCellDef="let hitter"> {{hitter["hr"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="Sb">
+      <ng-container matColumnDef="sb">
         <mat-header-cell *matHeaderCellDef mat-sort-header start="desc"> SB </mat-header-cell>
-        <mat-cell *matCellDef="let hitter"> {{hitter["Sb"]}} </mat-cell>
+        <mat-cell *matCellDef="let hitter"> {{hitter["sb"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="Cs">
+      <ng-container matColumnDef="cs">
         <mat-header-cell *matHeaderCellDef mat-sort-header start="desc"> CS </mat-header-cell>
-        <mat-cell *matCellDef="let hitter"> {{hitter["Cs"]}} </mat-cell>
+        <mat-cell *matCellDef="let hitter"> {{hitter["cs"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="Avg">
+      <ng-container matColumnDef="avg">
         <mat-header-cell *matHeaderCellDef mat-sort-header start="desc"> AVG </mat-header-cell>
-        <mat-cell *matCellDef="let hitter"> {{hitter["Avg"]}} </mat-cell>
+        <mat-cell *matCellDef="let hitter"> {{hitter["avg"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="Obp">
+      <ng-container matColumnDef="obp">
         <mat-header-cell *matHeaderCellDef mat-sort-header start="desc"> OBP </mat-header-cell>
-        <mat-cell *matCellDef="let hitter"> {{hitter["Obp"]}} </mat-cell>
+        <mat-cell *matCellDef="let hitter"> {{hitter["obp"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="Slg">
+      <ng-container matColumnDef="slg">
         <mat-header-cell *matHeaderCellDef mat-sort-header start="desc"> SLG </mat-header-cell>
-        <mat-cell *matCellDef="let hitter"> {{hitter["Slg"]}} </mat-cell>
+        <mat-cell *matCellDef="let hitter"> {{hitter["slg"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="Ops">
+      <ng-container matColumnDef="ops">
         <mat-header-cell *matHeaderCellDef mat-sort-header start="desc"> OPS </mat-header-cell>
-        <mat-cell *matCellDef="let hitter"> {{hitter["Ops"]}} </mat-cell>
+        <mat-cell *matCellDef="let hitter"> {{hitter["ops"]}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="Woba">
+      <ng-container matColumnDef="woba">
         <mat-header-cell *matHeaderCellDef mat-sort-header start="desc"> wOBA </mat-header-cell>
-        <mat-cell *matCellDef="let hitter"> {{hitter["Woba"]}} </mat-cell>
+        <mat-cell *matCellDef="let hitter"> {{hitter["woba"]}} </mat-cell>
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns, sticky: true"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
