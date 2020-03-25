@@ -11,8 +11,8 @@ export const initialSearchTermState:SearchTermState = {
         searchterms: {
             ipfilter: "100",
             pafilter: "500",
-            teamfilter: "allteams",
-            posfilter: "all",
+            teamfilter: "",
+            posfilter: "",
             searchyear: "2019"
         }
 }

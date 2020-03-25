@@ -14,15 +14,15 @@
             <mat-form-field>
                 <mat-label for="teamlist">Select Team</mat-label>
                 <mat-select [(ngModel)]="searchterms.teamfilter">
-                    <mat-option value="allteams">All MLB</mat-option>
-                    <mat-option *ngFor="let team of teamlist; index as i" value="{{team['mlbOrgId']}}">
+                    <mat-option value="">All MLB</mat-option>
+                    <mat-option *ngFor="let team of teamlist; index as i" value="{{team['teamId']}}">
                         {{team["nameDisplayBrief"]}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
         <div class="search-positional-toggles" *ngIf="this.mode === 'hitting'">
             <mat-button-toggle-group [(ngModel)]="searchterms.posfilter">
-                <mat-button-toggle value="all">ALL</mat-button-toggle>
+                <mat-button-toggle value="">ALL</mat-button-toggle>
                 <mat-button-toggle value="C">C</mat-button-toggle>
                 <mat-button-toggle value="1B">1B</mat-button-toggle>
                 <mat-button-toggle value="2B">2B</mat-button-toggle>

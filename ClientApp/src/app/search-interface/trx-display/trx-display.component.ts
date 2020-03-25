@@ -21,7 +21,7 @@ export class TrxDisplayComponent implements OnInit {
   displayedColumns: string[] = ['date', 'note'];
   teamlist$: Observable<Team[]>
   teamlist: Team[]
-  teamview: string = "allteams"
+  teamview: string = ""
   stdate = new FormControl(moment(0, "HH").subtract(7, 'days'));
   enddate = new FormControl(moment(0, "HH"))
   minMoment = moment(0, "HH").subtract(3, 'years').format()

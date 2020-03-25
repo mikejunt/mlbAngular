@@ -39,7 +39,7 @@
                     <mat-form-field>
                         <mat-label for="favteam">Select Favorite Team</mat-label>
                         <mat-select formControlName="favteam">
-                            <mat-option *ngFor="let team of teamlist; index as i" value="{{team['mlbOrgId']}}">
+                            <mat-option *ngFor="let team of teamlist; index as i" value="{{team['teamId']}}">
                                 {{team["nameDisplayBrief"]}}</mat-option>
                             <mat-hint>You must select a favorite team.</mat-hint>
                         </mat-select>

@@ -8,7 +8,7 @@ export class TeamtrxPipe implements PipeTransform {
 
   transform(trx: Transaction[], team: string): Transaction[] {
     let tofilter = [...trx];
-    if (team === "allteams") return trx
+    if (team === "") return trx
     let teamtrx = tofilter.filter(trx => trx["team_id"] === team)
     if (teamtrx.length === 0) {teamtrx.push({note:"No transactions found that met those criteria."})};
     return teamtrx;

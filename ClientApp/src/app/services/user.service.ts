@@ -66,8 +66,8 @@ export class UserService {
     this.staticquery.fetchTeamDetails(teamid)
     const params = new HttpParams().set('team_id', `'${teamid}'`)
     this.roster.fetchRoster(params)
-    this.pitching.fetchSeasonPitching({searchyear: "2019", teamfilter: teamid, posfilter: "all", ipfilter: "50"})
-    this.hitting.fetchSeasonHitting({searchyear: "2019", teamfilter: teamid, posfilter: "all", pafilter: "300"})
+    this.pitching.fetchSeasonPitching({searchyear: "2019", teamfilter: teamid, posfilter: "", ipfilter: "50"})
+    this.hitting.fetchSeasonHitting({searchyear: "2019", teamfilter: teamid, posfilter: "", pafilter: "300"})
   }
 
 }

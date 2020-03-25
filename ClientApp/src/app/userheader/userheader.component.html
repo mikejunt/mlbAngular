@@ -8,7 +8,7 @@
                     <button mat-button [matMenuTriggerFor]="teammenu">Teams</button>
                     <mat-menu #teammenu="matMenu">
                         <button mat-menu-item *ngFor="let team of teamlist"
-                            (click)="viewteam(team['mlbOrgId'])">{{team["nameDisplayBrief"]}}</button>
+                            (click)="viewteam(team['teamId'])">{{team["nameDisplayBrief"]}}</button>
                     </mat-menu>
                     <button mat-button [matMenuTriggerFor]="searchmenu">Stats</button>
                     <mat-menu #searchmenu="matMenu">

@@ -23,8 +23,8 @@ export class SearchInterfaceComponent implements OnInit {
   searchterms: SearchTerms = {
     pafilter: "500",
     ipfilter: "150",
-    teamfilter: "allteams",
-    posfilter: "all",
+    teamfilter: "",
+    posfilter: "",
     searchyear: "2019"
   }
 
@@ -42,6 +42,7 @@ export class SearchInterfaceComponent implements OnInit {
     const terms = {...this.searchterms}
     this.store.dispatch(Actions.saveSearchTerms({searchterms: terms}))
     if (this.mode === "hitting") {
+      console.log("seach button", terms)
       this.hitting.fetchSeasonHitting(terms)
     }
     if (this.mode === "pitching") {
