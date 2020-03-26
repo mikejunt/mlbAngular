@@ -41,7 +41,7 @@ export class UserheaderComponent implements OnInit {
   }
 
   showRoster(team: string) {
-    const params = new HttpParams().set('TeamId', `'${team}'`)
+    const params = new HttpParams().set('team_id', `${team}`)
     this.roster.fetchRoster(params)
   }
 
