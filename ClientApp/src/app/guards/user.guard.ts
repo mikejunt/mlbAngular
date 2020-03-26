@@ -1,28 +1,25 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, iif, of } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store';
 import * as Selectors from '../store/selectors'
+import { tap, map, concatMap } from 'rxjs/operators';
+import { AuthService } from '../services/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserGuard implements CanActivate {
-  username$: Observable<string>
-  username: string
-  constructor (private store: Store<AppState>, private router: Router) {
-    this.username$ = this.store.select(Selectors.viewUserName);
-    this.username$.subscribe(name => this.username = name)}
+
+  constructor(private store: Store<AppState>, private router: Router, private auth: AuthService) { }
+
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    // if (this.username === "") {
-    //   this.router.navigate(['login'])
-    //   return false
-    // }
-    // else 
-    return true
+    state: RouterStateSnapshot): Observable<boolean | any | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+      return this.auth.isAuthenticated$.pipe(
+        concatMap(_ => this.auth.handleAuthCallback()),
+        concatMap(result => iif(() => result.loggedIn, of(true),
+         this.auth.login(state.url).pipe(map(_ => false)))));
   }
-  
 }

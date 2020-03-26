@@ -3,30 +3,27 @@ import createAuth0Client from '@auth0/auth0-spa-js';
 import Auth0Client from '@auth0/auth0-spa-js/dist/typings/Auth0Client';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { from, Observable, BehaviorSubject, throwError, combineLatest, of } from 'rxjs';
+import { from, Observable, BehaviorSubject, throwError, combineLatest, of, iif } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store';
 import * as Actions from '../store/actions';
-import { concatMap, tap, catchError, shareReplay } from 'rxjs/operators';
+import { concatMap, tap, catchError, shareReplay, take, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  auth0Client$ = (from(createAuth0Client({
+  auth0Client$: Observable<Auth0Client> = from(createAuth0Client({
     domain: "dev-6-503zbg.auth0.com",
     client_id: "w4iUZ9vU8tGU6fL3xP015wr6z0irxll2",
-    redirect_uri: `https://localhost:5001/landing`
-  })) as Observable<Auth0Client>).pipe(
+    redirect_uri: `${window.location.origin}`,
+  })).pipe(
     shareReplay(1),
-    catchError(err => throwError(err))
-  );
+    catchError(err => throwError(err)))
 
-  isAuthenticated$ = this.auth0Client$.pipe(
-    concatMap((client: Auth0Client) => from(client.isAuthenticated())),
-    tap(res => this.loggedIn = res)
-  );
+  isAuthenticated$: Observable<boolean> = this.auth0Client$.pipe(concatMap((client: Auth0Client) => 
+    from(client.isAuthenticated())));
 
   handleRedirectCallback$ = this.auth0Client$.pipe(
     concatMap((client: Auth0Client) => from(client.handleRedirectCallback()))
@@ -64,42 +61,32 @@ export class AuthService {
     checkAuth$.subscribe();
   }
 
-  login(redirectPath: string = 'https://localhost:5001/landing') {
-    this.auth0Client$.subscribe((client: Auth0Client) => {
-      client.loginWithRedirect({
-        redirect_uri: `https://localhost:5001/landing`,
+  login(redirectPath: string = '/'): Observable<void> {
+    return this.auth0Client$.pipe(
+      concatMap((client: Auth0Client) =>
+        client.loginWithRedirect({
+        redirect_uri: `${window.location.origin}`,
         appState: { target: redirectPath }
-      });
-    });
+      })));
   }
 
-  private handleAuthCallback() {
-    const params = window.location.search;
-    console.log(params, "Params, from handleAuthCallback")
-    if (params.includes('code=') && params.includes('state=')) {
-      let targetRoute: string;
-      const authComplete$ = this.handleRedirectCallback$.pipe(
-        tap(cbRes => {
-          console.log(cbRes, "cbRes within handleauthcallback");
-          targetRoute = cbRes.appState && cbRes.appState.target ? cbRes.appState.target : '/';
-        }),
-        concatMap(() => {
-          return combineLatest([this.getUser$(),this.isAuthenticated$]);
-        })
-      );
-      console.log(targetRoute,"targetRoute, from Authcomplete")
-      authComplete$.subscribe(([user, loggedIn]) => {
-        console.log(user,loggedIn, "user, loggedIn from Authcomplete")
-        this.router.navigate([targetRoute]);
-      });
-    }
-  }
+  handleAuthCallback(): Observable<{loggedIn: boolean, targetUrl: string}> {
+    return of(window.location.search).pipe(
+     concatMap(params =>
+       iif(() => params.includes('code=') && params.includes('state='),
+          this.handleRedirectCallback$.pipe(concatMap(cbRes =>
+             this.isAuthenticated$.pipe(take(1),
+               map(loggedIn => ({ loggedIn,
+             targetUrl: cbRes.appState && cbRes.appState.target ? cbRes.appState.target : '/'
+           }))))),
+         this.isAuthenticated$.pipe(take(1), map(loggedIn => ({ loggedIn, targetUrl: null }))))));
+ }
 
   logout() {
     this.auth0Client$.subscribe((client: Auth0Client) => {
       client.logout({
         client_id: "w4iUZ9vU8tGU6fL3xP015wr6z0irxll2",
-        returnTo: `https://localhost:5001`
+        returnTo: `${window.location.origin}`
       });
     });
   }

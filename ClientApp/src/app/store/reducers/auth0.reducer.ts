@@ -1,19 +1,19 @@
 import { createReducer } from "@ngrx/store";
-import { saveApiToken } from '../actions';
+import { setUser } from '../actions';
 import { Action, on } from '@ngrx/store';
 
 export interface AuthorizationState {
-    apitoken: string
+    user: Object
 }
 
 export const initialAuthorizationState:AuthorizationState = {
-    apitoken: "",
+    user: {}
 }
 
 
 
 const authorizationReducer = createReducer(initialAuthorizationState,
-    on(saveApiToken, (state, { token }) => ({...state, apitoken: token})),
+    on(setUser, (state, { user }) => ({...state, user: user})),
 );
 
 

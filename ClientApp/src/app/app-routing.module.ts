@@ -12,10 +12,10 @@ const routes: Routes = [
   { path: 'hitting', component: HittingDisplayComponent, canActivate: [UserGuard] },
   { path: 'pitching', component: PitchingDisplayComponent, canActivate: [UserGuard] },
   { path: 'trans', component: TrxDisplayComponent, canActivate: [UserGuard] },
-  { path: 'landing', component: TeamLandingComponent, canActivate: [UserGuard] },
+  { path: 'landing', component: TeamLandingComponent, canActivate: [UserGuard], },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'landing', pathMatch: 'full' },
 ];
 
 @NgModule({
