@@ -30,7 +30,6 @@ import { TeamPitchLeadersComponent } from './team-landing/team-pitch-leaders/tea
 import { TeamDescComponent } from './team-landing/team-desc/team-desc.component';
 import { LeadersAscPipe } from './pipes/leaders-asc.pipe';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
-import { MatNativeDateModule } from '@angular/material/core'
 import { MomentdatePipe } from './pipes/momentdate.pipe';
 import { EraPipe } from './pipes/era.pipe';
 
@@ -71,7 +70,6 @@ import { EraPipe } from './pipes/era.pipe';
     MaterialModule,
     ReactiveFormsModule,
     MatMomentDateModule,
-    MatNativeDateModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
