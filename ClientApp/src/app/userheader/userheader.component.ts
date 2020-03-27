@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user.service';
 import { StaticqueryService } from '../services/static-query.service';
 import { Observable } from 'rxjs';
-import { Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { AppState } from '../store';
 import { Team } from '../interfaces/team.interface';
 import * as Selectors from '../store/selectors';
@@ -12,6 +11,7 @@ import { HttpParams } from '@angular/common/http';
 import { RosterService } from '../services/roster-query.service'
 import { HittingService } from '../services/hitting-query.service';
 import { PitchingService } from '../services/pitching-query.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-userheader',
@@ -26,7 +26,7 @@ export class UserheaderComponent implements OnInit {
   displayteam$: Observable<string>
   displayteam: string
 
-  constructor(private user: UserService, private staticquery: StaticqueryService,
+  constructor(private auth: AuthService, private staticquery: StaticqueryService,
     private store: Store<AppState>, private router: Router, private roster: RosterService,
     private hitting: HittingService, private pitching: PitchingService) {
     this.username$ = this.store.select(Selectors.viewUserName)
@@ -60,6 +60,6 @@ export class UserheaderComponent implements OnInit {
     this.router.navigate([`/${category}`])
   }
 
-  logout() { this.user.logout() }
+  logout() { this.auth.logout() }
 
 }

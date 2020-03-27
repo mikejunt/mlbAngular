@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 import { UserheaderComponent } from './userheader/userheader.component';
 import { SearchInterfaceComponent } from './search-interface/search-interface.component';
 import { TeamRosterComponent } from './team-landing/team-roster/team-roster.component';
@@ -32,7 +31,6 @@ import { TeamDescComponent } from './team-landing/team-desc/team-desc.component'
 import { LeadersAscPipe } from './pipes/leaders-asc.pipe';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatNativeDateModule } from '@angular/material/core'
-import { SignupComponent } from './signup/signup.component';
 import { MomentdatePipe } from './pipes/momentdate.pipe';
 import { EraPipe } from './pipes/era.pipe';
 
@@ -40,7 +38,6 @@ import { EraPipe } from './pipes/era.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     UserheaderComponent,
     SearchInterfaceComponent,
     TeamRosterComponent,
@@ -62,7 +59,6 @@ import { EraPipe } from './pipes/era.pipe';
     TeamPitchLeadersComponent,
     TeamDescComponent,
     LeadersAscPipe,
-    SignupComponent,
     MomentdatePipe,
     EraPipe,
   ],
