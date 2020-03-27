@@ -9,6 +9,7 @@ import { PitchingService } from './services/pitching-query.service';
 import { HittingService } from './services/hitting-query.service';
 import { HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { UserService } from './services/user.service';
 
 
 @Component({
@@ -18,15 +19,12 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements AfterViewInit {
   title = "Mike's Baseball App";
+  team$ = this.store.select(Selectors.viewUserFav)
 
-  constructor (private store: Store<AppState>, private auth: AuthService, private staticquery:
+  constructor (private store: Store<AppState>, private auth: AuthService, private user: UserService, private staticquery:
     StaticqueryService, private roster: RosterService, private pitching: PitchingService, 
     private hitting: HittingService, private router: Router) {
-    let team$ = this.store.select(Selectors.viewUserFav)
-    let team
-    team$.subscribe(res=> team = res)
-    this.getinitialData(team)
-
+    this.team$.subscribe(res=> this.getinitialData(res))
   }
 
   getinitialData(teamid: string) {
