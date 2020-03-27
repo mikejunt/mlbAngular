@@ -43,7 +43,7 @@ export class StaticqueryService {
   fetchTeams() {
     this.http.get(this.teamsUrl).pipe(
       retry(3),
-      catchError(err => this.logError(err.msg)))
+      catchError(err => throwError(err)))
       .subscribe((teamlist: Team[]) => {
         this.store.dispatch(Actions.saveTeams({ teamlist: teamlist }));
       })
@@ -52,12 +52,10 @@ export class StaticqueryService {
   fetchTeamDetails(teamid: string) {
     this.http.get(`${this.teamsUrl}/${teamid}`).pipe(
       retry(3),
-      catchError(err => this.logError(err.msg)))
+      catchError(err => throwError(err)))
       .subscribe(teamdata => {
         this.store.dispatch(Actions.saveTeamDetails({ teamdetails: teamdata }))
       })
   }
-
-  logError(err) { console.log(err); return err }
 
 }

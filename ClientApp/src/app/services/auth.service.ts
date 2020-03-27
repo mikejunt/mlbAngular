@@ -43,7 +43,6 @@ export class AuthService {
     return this.auth0Client$.pipe(
       concatMap((client: Auth0Client) => from(client.getUser(options))),
       tap(user => {
-        console.log(user,"User, from getuser$")
         this.userProfileSubject$.next(user)
       })  
     );
@@ -79,8 +78,7 @@ export class AuthService {
                map(loggedIn => ({ loggedIn,
              targetUrl: cbRes.appState && cbRes.appState.target ? cbRes.appState.target : '/'
            }))))),
-         this.isAuthenticated$.pipe(take(1), map(loggedIn => ({ loggedIn, targetUrl: null }))))),
-         tap(res=>(console.log("handleauthcallback"))));
+         this.isAuthenticated$.pipe(take(1), map(loggedIn => ({ loggedIn, targetUrl: null }))))));
  }
 
   logout() {
