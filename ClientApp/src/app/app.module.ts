@@ -34,6 +34,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatNativeDateModule } from '@angular/material/core'
 import { SignupComponent } from './signup/signup.component';
 import { MomentdatePipe } from './pipes/momentdate.pipe';
+import { EraPipe } from './pipes/era.pipe';
 
 
 @NgModule({
@@ -63,6 +64,7 @@ import { MomentdatePipe } from './pipes/momentdate.pipe';
     LeadersAscPipe,
     SignupComponent,
     MomentdatePipe,
+    EraPipe,
   ],
   imports: [
     BrowserModule,
