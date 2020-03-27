@@ -48,7 +48,7 @@
                     </ng-container>
                     <ng-container matColumnDef="era">
                         <mat-header-cell *matHeaderCellDef> ERA </mat-header-cell>
-                        <mat-cell *matCellDef="let pitcher"> {{pitcher["era"]}} </mat-cell>
+                        <mat-cell *matCellDef="let pitcher"> {{pitcher["era"] | era}} </mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="ip">
                         <mat-header-cell *matHeaderCellDef> IP </mat-header-cell>
