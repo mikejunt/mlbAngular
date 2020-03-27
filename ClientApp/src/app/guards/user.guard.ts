@@ -19,6 +19,7 @@ export class UserGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | any | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       return this.auth.isAuthenticated$.pipe(
         concatMap(_ => this.auth.handleAuthCallback()),
+        tap(res=>console.log("This is the user guard.")),
         concatMap(result => iif(() => result.loggedIn, of(true),
          this.auth.login(state.url).pipe(map(_ => false)))));
   }

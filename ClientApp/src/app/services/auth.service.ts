@@ -63,7 +63,7 @@ export class AuthService {
 
   login(redirectPath: string = '/'): Observable<void> {
     return this.auth0Client$.pipe(
-      concatMap((client: Auth0Client) =>
+      concatMap((client: Auth0Client) => 
         client.loginWithRedirect({
         redirect_uri: `${window.location.origin}`,
         appState: { target: redirectPath }
@@ -79,7 +79,8 @@ export class AuthService {
                map(loggedIn => ({ loggedIn,
              targetUrl: cbRes.appState && cbRes.appState.target ? cbRes.appState.target : '/'
            }))))),
-         this.isAuthenticated$.pipe(take(1), map(loggedIn => ({ loggedIn, targetUrl: null }))))));
+         this.isAuthenticated$.pipe(take(1), map(loggedIn => ({ loggedIn, targetUrl: null }))))),
+         tap(res=>(console.log("handleauthcallback"))));
  }
 
   logout() {
