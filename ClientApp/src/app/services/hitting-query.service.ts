@@ -27,7 +27,4 @@ export class HittingService {
       })
     }
 
-
-  logError(err) { console.log(err); return err }
-
 }

@@ -58,6 +58,4 @@ export class StaticqueryService {
       })
   }
 
-  logError(err) { console.log(err); return err }
-
 }
