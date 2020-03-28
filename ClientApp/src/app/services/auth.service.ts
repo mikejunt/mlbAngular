@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import createAuth0Client from '@auth0/auth0-spa-js';
 import Auth0Client from '@auth0/auth0-spa-js/dist/typings/Auth0Client';
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { from, Observable, BehaviorSubject, throwError, combineLatest, of, iif } from 'rxjs';
+import { from, Observable, BehaviorSubject, throwError, of, iif } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store';
-import * as Actions from '../store/actions';
 import { concatMap, tap, catchError, shareReplay, take, map } from 'rxjs/operators';
 
 @Injectable({

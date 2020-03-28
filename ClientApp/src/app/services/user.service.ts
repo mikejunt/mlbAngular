@@ -13,7 +13,6 @@ import { AuthService } from './auth.service';
 export class UserService {
   favteam$: Observable<string>;
   favteam: string;
-  user: Object;
   user$: Observable<Object>
 
   constructor(private store: Store<AppState>, private auth: AuthService) {
@@ -22,7 +21,6 @@ export class UserService {
   setUserData(){
     this.user$ = this.auth.getUser$()
     this.user$.subscribe(res=>{
-      this.user = res
       this.store.dispatch(Actions.login({user: {username: res['nickname'], favteam: res['http://msj-baseball-favteam']}}))
       this.store.dispatch(Actions.setViewTeam({displayteam: res['http://msj-baseball-favteam']}))})
     this.favteam$ = this.store.select(Selectors.viewUserFav);

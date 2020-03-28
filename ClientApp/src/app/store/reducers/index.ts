@@ -8,6 +8,5 @@ export * from './transaction.response.reducer';
 export * from './copyright.notice.reducer';
 export * from './current.hitting.reducer';
 export * from './current.pitching.reducer';
-export * from './user.signup.reducer';
 export * from './search.terms.reducer';
 export * from './auth0.reducer';

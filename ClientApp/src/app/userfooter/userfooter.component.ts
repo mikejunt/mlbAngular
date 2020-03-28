@@ -15,10 +15,10 @@ export class UserfooterComponent implements OnInit {
   
   constructor(private store: Store<AppState>) {
       this.copyright$ = this.store.pipe(select(Selectors.viewCopyNotice));
-      this.copyright$.subscribe(res => this.copyright = res);
    }
 
   ngOnInit(): void {
+    this.copyright$.subscribe(res => this.copyright = res);
   }
 
 }

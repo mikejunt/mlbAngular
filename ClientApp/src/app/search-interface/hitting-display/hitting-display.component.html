@@ -41,23 +41,23 @@
       </ng-container>
       <ng-container matColumnDef="avg">
         <mat-header-cell *matHeaderCellDef mat-sort-header start="desc"> AVG </mat-header-cell>
-        <mat-cell *matCellDef="let hitter"> {{hitter["avg"]}} </mat-cell>
+        <mat-cell *matCellDef="let hitter"> {{hitter["avg"] | avg}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="obp">
         <mat-header-cell *matHeaderCellDef mat-sort-header start="desc"> OBP </mat-header-cell>
-        <mat-cell *matCellDef="let hitter"> {{hitter["obp"]}} </mat-cell>
+        <mat-cell *matCellDef="let hitter"> {{hitter["obp"] | avg}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="slg">
         <mat-header-cell *matHeaderCellDef mat-sort-header start="desc"> SLG </mat-header-cell>
-        <mat-cell *matCellDef="let hitter"> {{hitter["slg"]}} </mat-cell>
+        <mat-cell *matCellDef="let hitter"> {{hitter["slg"] | avg}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="ops">
         <mat-header-cell *matHeaderCellDef mat-sort-header start="desc"> OPS </mat-header-cell>
-        <mat-cell *matCellDef="let hitter"> {{hitter["ops"]}} </mat-cell>
+        <mat-cell *matCellDef="let hitter"> {{hitter["ops"] | avg}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="woba">
         <mat-header-cell *matHeaderCellDef mat-sort-header start="desc"> wOBA </mat-header-cell>
-        <mat-cell *matCellDef="let hitter"> {{hitter["woba"]}} </mat-cell>
+        <mat-cell *matCellDef="let hitter"> {{hitter["woba"] | avg}} </mat-cell>
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns, sticky: true"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

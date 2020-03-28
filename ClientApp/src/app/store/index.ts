@@ -20,7 +20,6 @@ export interface AppState {
   copyright: Reducers.CopyNoticeState
   curpitching: Reducers.CurrentYrPitchingState
   curhitting: Reducers.CurrentYrHittingState
-  userlist: Reducers.UserListState
   searchterms: Reducers.SearchTermState
   auth0: Reducers.AuthorizationState
 }
@@ -36,7 +35,6 @@ export const reducers: ActionReducerMap<AppState> = {
   copyright: Reducers.setCopyNotice,
   curpitching: Reducers.saveCurPitching,
   curhitting: Reducers.saveCurHitting,
-  userlist: Reducers.addNewUserStatus,
   searchterms: Reducers.setSearchTerms,
   auth0: Reducers.setAuthorization,
 }

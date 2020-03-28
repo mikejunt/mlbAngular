@@ -1,5 +1,5 @@
 <div class="mat-app-background landing-panel">
-    <div *ngIf="hitters.length != 0" class="sub-header">Batting Leaders ({{hitters[0]['Season']}})</div>
+    <div *ngIf="hitters.length != 0" class="sub-header">Batting Leaders ({{hitters[0]['season']}})</div>
     <mat-progress-spinner *ngIf="hitters.length == 0; else loaded" color="primary" mode="indeterminate">
     </mat-progress-spinner>
     <ng-template #loaded>

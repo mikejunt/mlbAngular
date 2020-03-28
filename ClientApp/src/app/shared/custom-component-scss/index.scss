@@ -7,17 +7,6 @@
     $background: map-get($theme, background);
     $foreground: map-get($theme, foreground);
 
-    @media (min-width: 500px) {
-        .floating-panel {
-            border-color: mat-color($primary);
-            border-style: solid;
-            border-width: 2px;
-            box-sizing: border-box;
-            border-radius: 7px;
-            box-shadow: 1px 1px 8px 1px mat-color($accent);
-        }
-    }
-
     .footer-container {
         background-color: mat-color($primary);
         color: mat-color($primary, default-contrast); 

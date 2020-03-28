@@ -3,7 +3,6 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Rout
 import { Observable, iif, of } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store';
-import * as Selectors from '../store/selectors'
 import { tap, map, concatMap } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';

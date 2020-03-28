@@ -16,27 +16,24 @@ import { PitchingService } from 'src/app/services/pitching-query.service';
   styleUrls: ['./pitching-display.component.scss']
 })
 export class PitchingDisplayComponent implements OnInit {
-  displayteam$: Observable<string>
   pitchers$: Observable<Pitcher[]>;
   displayedColumns: string[] = ['player','name','w','l','sv','g','gs','ip','so','bb','hr','era','fip']
-  pitchers: Pitcher[]
   pitchdata: MatTableDataSource<Pitcher>;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator
   @ViewChild(MatSort, { static: true }) sort: MatSort
 
   constructor(private store: Store<AppState>, private pitching: PitchingService) {
     this.pitchers$ = this.store.select(Selectors.viewPitching)
-    this.displayteam$ = this.store.select(Selectors.viewSelectedTeam); 
   }
 
   sortTable(sort:Sort) {
-    // console.log(sort)
+    // console.log(sort) # for some reason MatSort wants a function for sort
   }
 
   ngOnInit(): void {
     this.pitchers$.subscribe(hit => {
-      this.pitchers = qclone.qclone(hit);
-        this.pitchdata = new MatTableDataSource(this.pitchers);
+      let pitchers = qclone.qclone(hit);
+        this.pitchdata = new MatTableDataSource(pitchers);
         this.pitchdata.paginator = this.paginator; 
         this.pitchdata.sort = this.sort
       })

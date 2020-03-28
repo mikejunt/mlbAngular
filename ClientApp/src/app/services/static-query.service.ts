@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { map, tap, retry, catchError } from 'rxjs/operators'
+import { map, retry, catchError } from 'rxjs/operators'
 import { Store } from '@ngrx/store';
 import * as Actions from '../store/actions/';
 import * as moment from 'moment';

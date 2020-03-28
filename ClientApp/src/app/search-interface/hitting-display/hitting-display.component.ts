@@ -17,7 +17,6 @@ import { MatSort, Sort } from '@angular/material/sort';
 export class HittingDisplayComponent implements OnInit {
   hitters$: Observable<Hitter[]>;
   displayedColumns: string[] = ['player','name','g','tpa','r','hr','rbi','sb','cs','avg','obp','slg','ops','woba'];
-  hitters: Hitter[]
   hitdata: MatTableDataSource<Hitter>
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator
   @ViewChild(MatSort, { static: true }) sort: MatSort
@@ -27,14 +26,14 @@ export class HittingDisplayComponent implements OnInit {
   }
 
   sortTable(sort:Sort) {
-    // console.log(sort)
+    // console.log(sort) # for some reason MatSort needs an assigned function
   }
 
 
   ngOnInit(): void {
     this.hitters$.subscribe(hit => {
-    this.hitters = qclone.qclone(hit);
-      this.hitdata = new MatTableDataSource(this.hitters);
+    let hitters = qclone.qclone(hit);
+      this.hitdata = new MatTableDataSource(hitters);
       this.hitdata.paginator = this.paginator; 
       this.hitdata.sort = this.sort
     })

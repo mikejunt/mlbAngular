@@ -25,13 +25,13 @@ import { NodupetrxPipe } from './pipes/nodupetrx.pipe';
 import { TeamLandingComponent } from './team-landing/team-landing.component';
 import { TeamTrxComponent } from './team-landing/team-trx/team-trx.component';
 import { TeamHitLeadersComponent } from './team-landing/team-hit-leaders/team-hit-leaders.component';
-import { TeamScheduleComponent } from './team-landing/team-schedule/team-schedule.component';
 import { TeamPitchLeadersComponent } from './team-landing/team-pitch-leaders/team-pitch-leaders.component';
 import { TeamDescComponent } from './team-landing/team-desc/team-desc.component';
 import { LeadersAscPipe } from './pipes/leaders-asc.pipe';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MomentdatePipe } from './pipes/momentdate.pipe';
 import { EraPipe } from './pipes/era.pipe';
+import { AvgPipe } from './pipes/avg.pipe';
 
 
 @NgModule({
@@ -54,12 +54,12 @@ import { EraPipe } from './pipes/era.pipe';
     TeamLandingComponent,
     TeamTrxComponent,
     TeamHitLeadersComponent,
-    TeamScheduleComponent,
     TeamPitchLeadersComponent,
     TeamDescComponent,
     LeadersAscPipe,
     MomentdatePipe,
     EraPipe,
+    AvgPipe,
   ],
   imports: [
     BrowserModule,
