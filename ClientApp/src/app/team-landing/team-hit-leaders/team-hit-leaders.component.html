@@ -12,7 +12,7 @@
                     </ng-container>
                     <ng-container matColumnDef="woba">
                         <mat-header-cell *matHeaderCellDef> wOBA </mat-header-cell>
-                        <mat-cell *matCellDef="let hitter"> {{hitter["woba"]}} </mat-cell>
+                        <mat-cell *matCellDef="let hitter"> {{hitter["woba"] | avg}} </mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="tpa">
                         <mat-header-cell *matHeaderCellDef> PA </mat-header-cell>
@@ -48,7 +48,7 @@
                     </ng-container>
                     <ng-container matColumnDef="ops">
                         <mat-header-cell *matHeaderCellDef> OPS </mat-header-cell>
-                        <mat-cell *matCellDef="let hitter"> {{hitter["ops"]}} </mat-cell>
+                        <mat-cell *matCellDef="let hitter"> {{hitter["ops"] | avg}} </mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="tpa">
                         <mat-header-cell *matHeaderCellDef> PA </mat-header-cell>
