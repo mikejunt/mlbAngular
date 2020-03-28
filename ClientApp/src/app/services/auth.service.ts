@@ -71,14 +71,14 @@ export class AuthService {
 
   handleAuthCallback(): Observable<{loggedIn: boolean, targetUrl: string}> {
     return of(window.location.search).pipe(
-     concatMap(params =>
-       iif(() => params.includes('code=') && params.includes('state='),
+     concatMap(params => {
+       return iif(() => params.includes('code=') && params.includes('state='),
           this.handleRedirectCallback$.pipe(concatMap(cbRes =>
              this.isAuthenticated$.pipe(take(1),
                map(loggedIn => ({ loggedIn,
              targetUrl: cbRes.appState && cbRes.appState.target ? cbRes.appState.target : '/'
            }))))),
-         this.isAuthenticated$.pipe(take(1), map(loggedIn => ({ loggedIn, targetUrl: null }))))));
+         this.isAuthenticated$.pipe(take(1), map(loggedIn => ({ loggedIn, targetUrl: null }))))}));
  }
 
   logout() {

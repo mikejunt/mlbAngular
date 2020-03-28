@@ -6,20 +6,27 @@ import { AppState } from '../store';
 import * as Selectors from '../store/selectors'
 import { tap, map, concatMap } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserGuard implements CanActivate {
+  initial: boolean = true;
 
-  constructor(private store: Store<AppState>, private router: Router, private auth: AuthService) { }
+  constructor(private store: Store<AppState>, private router: Router, private auth: AuthService,
+    private user: UserService) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | any | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       return this.auth.isAuthenticated$.pipe(
         concatMap(_ => this.auth.handleAuthCallback()),
-        tap(res=>this.auth.getUser$().subscribe()),
+        tap(res=>{
+          if (this.initial) {
+            this.user.setUserData()
+            this.initial = false
+          }}),
         concatMap(result => iif(() => result.loggedIn, of(true),
          this.auth.login(state.url).pipe(map(_ => false)))));
   }

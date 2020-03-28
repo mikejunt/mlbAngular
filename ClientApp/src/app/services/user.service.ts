@@ -17,14 +17,17 @@ export class UserService {
   user$: Observable<Object>
 
   constructor(private store: Store<AppState>, private auth: AuthService) {
+  }
+
+  setUserData(){
     this.user$ = this.auth.getUser$()
     this.user$.subscribe(res=>{
-      console.log("User:",res, window.location.search);
       this.user = res
       this.store.dispatch(Actions.login({user: {username: res['nickname'], favteam: res['http://msj-baseball-favteam']}}))
       this.store.dispatch(Actions.setViewTeam({displayteam: res['http://msj-baseball-favteam']}))})
     this.favteam$ = this.store.select(Selectors.viewUserFav);
     this.favteam$.subscribe(res => { this.changeFavTheme(res); this.favteam = res })
+
   }
 
 
