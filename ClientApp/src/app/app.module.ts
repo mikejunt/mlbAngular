@@ -32,6 +32,8 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MomentdatePipe } from './pipes/momentdate.pipe';
 import { EraPipe } from './pipes/era.pipe';
 import { AvgPipe } from './pipes/avg.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -77,6 +79,7 @@ import { AvgPipe } from './pipes/avg.pipe';
         strictActionImmutability: true
       }
     }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
 
   ],
   providers: [],
