@@ -25,5 +25,58 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "team data",
+      "urls": ["https://baseball-api.azurewebsites.net/api/teams","https://baseball-api.azurewebsites.net/api/teams/*"],
+      "version": 1,
+      "cacheConfig": {
+        "maxSize": 31,
+        "maxAge": "30d",
+        "timeout": "3s",
+        "strategy": "performance"
+      }
+    },{
+      "name": "roster data",
+      "urls": ["https://lookup-service-prod.mlb.com/json/named.roster_40.bam?*"],
+      "version": 1,
+      "cacheConfig": {
+        "maxSize": 31,
+        "maxAge": "30d",
+        "timeout": "6s",
+        "strategy": "freshness"
+      }
+    },{
+      "name": "team hitting data for splash",
+      "urls": ["https://baseball-api.azurewebsites.net/api/hitting?season=2019&pa=300&team=*&position="],
+      "version": 1,
+      "cacheConfig": {
+        "maxSize": 30,
+        "maxAge": "30d",
+        "timeout": "4s",
+        "strategy": "performance"
+      } 
+    },{
+      "name": "team pitching data for splash",
+      "urls": ["https://baseball-api.azurewebsites.net/api/hitting?season=2019&team=*&ip=50"],
+      "version": 1,
+      "cacheConfig": {
+        "maxSize": 30,
+        "maxAge": "30d",
+        "timeout": "4s",
+        "strategy": "performance"
+      }
+    },{
+      "name": "transaction data",
+      "urls": ["https://lookup-service-prod.mlb.com/json/named.transaction_all.bam?*"],
+      "version": 1,
+      "cacheConfig": {
+        "maxSize": 1,
+        "maxAge": "1d",
+        "timeout": "6s",
+        "strategy": "freshness"
+      }
+    }
   ]
 }
