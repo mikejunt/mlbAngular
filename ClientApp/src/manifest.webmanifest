@@ -4,8 +4,8 @@
   "theme_color": "#005c5c",
   "background_color": "#fafafa",
   "display": "standalone",
-  "scope": "./",
-  "start_url": "./",
+  "scope": "https://msj-baseball-app.azurewebsites.net/",
+  "start_url": "https://msj-baseball-app.azurewebsites.net/",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
