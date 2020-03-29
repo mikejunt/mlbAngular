@@ -79,7 +79,7 @@ import { environment } from '../environments/environment';
         strictActionImmutability: true
       }
     }),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production, registrationStrategy: 'registerWithDelay:10000' }),
 
   ],
   providers: [],
