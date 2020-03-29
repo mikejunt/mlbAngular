@@ -59,8 +59,8 @@
       } 
     },{
       "name": "team pitching data for splash",
-      "urls": ["https://baseball-api.azurewebsites.net/api/hitting?season=2019&team=*&ip=50"],
-      "version": 1,
+      "urls": ["https://baseball-api.azurewebsites.net/api/pitching?season=2019&team=*&ip=50"],
+      "version": 2,
       "cacheConfig": {
         "maxSize": 30,
         "maxAge": "30d",
