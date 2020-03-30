@@ -4,7 +4,7 @@
   <div class="display-container">
     <mat-table matSort matSortDisableClear="true" (matSortChange)="sortTable($event)" [dataSource]="pitchdata">
       <ng-container matColumnDef="player" sticky>
-        <mat-header-cell *matHeaderCellDef mat-sort-header> name </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
         <mat-cell *matCellDef="let pitcher"> {{pitcher["player"] | nameFirstLast}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="name">
@@ -12,11 +12,11 @@
         <mat-cell *matCellDef="let pitcher"> {{pitcher["name"]}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="w">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> w </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> W </mat-header-cell>
         <mat-cell *matCellDef="let pitcher"> {{pitcher["w"]}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="l">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> l </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> L </mat-header-cell>
         <mat-cell *matCellDef="let pitcher"> {{pitcher["l"]}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="sv">
@@ -24,7 +24,7 @@
         <mat-cell *matCellDef="let pitcher"> {{pitcher["sv"]}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="g">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> g </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> G </mat-header-cell>
         <mat-cell *matCellDef="let pitcher"> {{pitcher["g"]}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="gs">

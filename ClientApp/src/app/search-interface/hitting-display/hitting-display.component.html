@@ -4,7 +4,7 @@
   <div class="results-display">
     <mat-table matSort matSortDisableClear="true" [dataSource]="hitdata" (matSortChange)="sortTable($event)">
       <ng-container matColumnDef="player" sticky>
-        <mat-header-cell *matHeaderCellDef mat-sort-header start="asc"> name </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header start="asc"> Name </mat-header-cell>
         <mat-cell *matCellDef="let hitter"> {{hitter["player"] | nameFirstLast}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="name">
@@ -20,7 +20,7 @@
         <mat-cell *matCellDef="let hitter"> {{hitter["tpa"]}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="r">
-        <mat-header-cell *matHeaderCellDef mat-sort-header start="desc"> r </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header start="desc"> R </mat-header-cell>
         <mat-cell *matCellDef="let hitter"> {{hitter["r"]}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="rbi">

@@ -7,7 +7,7 @@
             <mat-tab label="FIP">
                 <mat-table [dataSource]="pitchers | leadersAsc:'fip'">
                     <ng-container matColumnDef="player">
-                        <mat-header-cell *matHeaderCellDef> player </mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef> Player </mat-header-cell>
                         <mat-cell *matCellDef="let pitcher"> {{pitcher["player"] | nameFirstLast}} </mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="fip">
@@ -25,7 +25,7 @@
             <mat-tab label="Strikeouts">
                 <mat-table [dataSource]="pitchers | leadersDesc:'so'">
                     <ng-container matColumnDef="player">
-                        <mat-header-cell *matHeaderCellDef> player </mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef> Player </mat-header-cell>
                         <mat-cell *matCellDef="let pitcher"> {{pitcher["player"] | nameFirstLast}} </mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="so">
@@ -43,7 +43,7 @@
             <mat-tab label="ERA">
                 <mat-table [dataSource]="pitchers | leadersAsc:'era'">
                     <ng-container matColumnDef="player">
-                        <mat-header-cell *matHeaderCellDef> player </mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef> Player </mat-header-cell>
                         <mat-cell *matCellDef="let pitcher"> {{pitcher["player"] | nameFirstLast}} </mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="era">
