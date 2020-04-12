@@ -23,7 +23,6 @@ export class UserGuard implements CanActivate {
         concatMap(_ => this.auth.handleAuthCallback()),
         tap(res=>{
           if (this.initial && res.loggedIn) {
-            console.log(res)
             this.user.setUserData()
             this.initial = false
           }}),
