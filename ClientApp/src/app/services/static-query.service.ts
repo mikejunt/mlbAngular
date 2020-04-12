@@ -7,6 +7,7 @@ import * as moment from 'moment';
 import { AppState } from '../store';
 import { Team } from '../interfaces/team.interface';
 import { throwError } from 'rxjs';
+import { Transaction } from '../interfaces/transaction.interface';
 
 
 @Injectable({
@@ -34,7 +35,14 @@ export class StaticqueryService {
       .pipe(
         retry(3),
         catchError(err => throwError(err)),
-        map(res => res = res["transaction_all"]["queryResults"]["row"]))
+        map(res => {
+          let data: Transaction[] = []
+          if (res["transaction_all"]["queryResults"]["row"]) {
+            data = res["transaction_all"]["queryResults"]["row"]
+          }
+          else data.push({note:"No transactions found."})
+          return data
+        }))
       .subscribe(trans => {
         this.store.dispatch(Actions.saveTrxList({ trxlist: trans }))
       })

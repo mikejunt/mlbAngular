@@ -17,7 +17,7 @@ export class TeamLandingComponent implements OnInit {
     this.teamdata$ = this.store.select(Selectors.viewTeamDetails);
     this.teamdata$.subscribe(res => this.teamdata = res)
     this.curteam$ = this.store.select(Selectors.viewSelectedTeam)
-    this.curteam$.subscribe(res => this.curteam = res)
+    this.curteam$.subscribe(res => {this.curteam = res})
   }
   
   teamdata$: Observable<Team>
